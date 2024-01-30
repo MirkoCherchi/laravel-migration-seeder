@@ -11,11 +11,44 @@
 </head>
 
 <body>
-    <div class="container py-5">
-        <h1 class="text-center">Laravel Template</h1>
+    <div class="container">
+        <h1 class="text-center p-4">Treni</h1>
+        <div class="row justify-content-center g-4">
+            @foreach ($trains as $train)
+                <ul class="list-group col-3">
+                    <li class="list-group-item"><b>Ageniza:</b> {{ $train['agency'] }}</li>
+                    <li class="list-group-item"><b>Numero:</b> {{ $train['train_code'] }}</li>
+                    <li class="list-group-item"><b>In partenza da: </b>{{ $train['departure_station'] }} <br><b> alle
+                            ore:
+                        </b>{{ $train['departure_time'] }}</li>
+                    <li class="list-group-item"><b>In arrivo a: </b>{{ $train['arrival_station'] }}
+                        <br><b> alle ore:
+                        </b>{{ $train['arrival_time'] }}
+                    </li>
+                    <li class="list-group-item">{{ $train['on_time'] == 0 ? 'In ritardo' : 'In orario' }}</li>
+                    <li class="list-group-item">{{ $train['cancelled'] == 0 ? '-' : 'Cancellato' }}</li>
+                </ul>
+            @endforeach
+        </div>
+        <h1 class="text-center p-4">Treni in Partenza oggi</h1>
+        <div class="row justify-content-center g-4">
+            @foreach ($todayTrains as $train)
+                <ul class="list-group col-3">
+                    <li class="list-group-item"><b>Ageniza:</b> {{ $train['agency'] }}</li>
+                    <li class="list-group-item"><b>Numero:</b> {{ $train['train_code'] }}</li>
+                    <li class="list-group-item"><b>In partenza da: </b>{{ $train['departure_station'] }} <br><b> alle
+                            ore:
+                        </b>{{ $train['departure_time'] }}</li>
+                    <li class="list-group-item"><b>In arrivo a: </b>{{ $train['arrival_station'] }}
+                        <br><b> alle ore:
+                        </b>{{ $train['arrival_time'] }}
+                    </li>
+                    <li class="list-group-item">{{ $train['on_time'] == 0 ? 'In ritardo' : 'In orario' }}</li>
+                    <li class="list-group-item">{{ $train['cancelled'] == 0 ? '-' : 'Cancellato' }}</li>
+                </ul>
+            @endforeach
+        </div>
     </div>
-
-    {{-- Insert code images <img src="{{ Vite::asset('resources/img/logo.png') }}" alt=""> --}}
 </body>
 
 </html>
