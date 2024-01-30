@@ -20,10 +20,10 @@
                     <li class="list-group-item"><b>Numero:</b> {{ $train['train_code'] }}</li>
                     <li class="list-group-item"><b>In partenza da: </b>{{ $train['departure_station'] }} <br><b> alle
                             ore:
-                        </b>{{ $train['departure_time'] }}</li>
+                        </b>{{ Carbon\Carbon::parse($train['departure_time'])->format('H:i - d/m/Y') }}</li>
                     <li class="list-group-item"><b>In arrivo a: </b>{{ $train['arrival_station'] }}
                         <br><b> alle ore:
-                        </b>{{ $train['arrival_time'] }}
+                        </b>{{ Carbon\Carbon::parse($train['arrival_time'])->format('H:i - d/m/Y') }}
                     </li>
                     <li class="list-group-item">{{ $train['on_time'] == 0 ? 'In ritardo' : 'In orario' }}</li>
                     <li class="list-group-item">{{ $train['cancelled'] == 0 ? '-' : 'Cancellato' }}</li>
@@ -38,10 +38,10 @@
                     <li class="list-group-item"><b>Numero:</b> {{ $train['train_code'] }}</li>
                     <li class="list-group-item"><b>In partenza da: </b>{{ $train['departure_station'] }} <br><b> alle
                             ore:
-                        </b>{{ $train['departure_time'] }}</li>
+                        </b>{{ Carbon\Carbon::parse($train['departure_time'])->format('H:i - d/m/Y') }}</li>
                     <li class="list-group-item"><b>In arrivo a: </b>{{ $train['arrival_station'] }}
                         <br><b> alle ore:
-                        </b>{{ $train['arrival_time'] }}
+                        </b>{{ Carbon\Carbon::parse($train['arrival_time'])->format('H:i - d/m/Y') }}
                     </li>
                     <li class="list-group-item">{{ $train['on_time'] == 0 ? 'In ritardo' : 'In orario' }}</li>
                     <li class="list-group-item">{{ $train['cancelled'] == 0 ? '-' : 'Cancellato' }}</li>
